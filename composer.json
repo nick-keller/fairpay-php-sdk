@@ -1,0 +1,23 @@
+{
+    "name": "Ferus/fairpay-php-sdk",
+    "description": "PHP DSK to work with FairPay",
+    "keywords": ["fairpay", "sdk", "bde", "esiee"],
+    "authors": [
+        {
+            "name": "Nicolas Keller",
+            "email": "nicolas.keller@edu.Esiee.fr",
+            "homepage": "http://nicolas-keller.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.2.0",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "symfony/yaml": "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Ferus": "src/"
+        }
+    }
+}

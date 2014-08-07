@@ -1,0 +1,9 @@
+api:
+    endpoint: http://localhost/fairpay/web/app_dev.php/api
+    actions:
+        balance: /balance
+        cash: /cash
+        deposit: /deposit
+        get_students: /students
+        get_student: /students/{query}
+        search_students: /students/{query}/search
