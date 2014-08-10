@@ -111,8 +111,8 @@ class FairPay
 
         if($http_status > 299){
             if($decoded != null && array_key_exists('message', $decoded))
-                throw new ApiErrorException($decoded->message, $http_status);
-            throw new ApiErrorException(null, $http_status);
+                throw new ApiErrorException($decoded->message, $http_status, $decoded);
+            throw new ApiErrorException(null, $http_status, $decoded);
         }
 
         return $decoded;
@@ -131,5 +131,29 @@ class FairPay
     public function getStudents()
     {
         return $this->api('/students');
+    }
+
+    public function getBalance()
+    {
+        return floatval($this->api('/balance', 'get', array('api_key' => $this->api_key))->balance);
+    }
+
+    public function cash($client_id, $amount, $cause)
+    {
+        return $this->api('/cash', 'post', array(
+            'api_key' => $this->api_key,
+            'client_id' => $client_id,
+            'amount' => $amount,
+            'cause' => $cause,
+        ));
+    }
+
+    public function deposit($client_id, $amount)
+    {
+        return $this->api('/deposit', 'post', array(
+            'api_key' => $this->api_key,
+            'client_id' => $client_id,
+            'amount' => $amount,
+        ));
     }
 } 
