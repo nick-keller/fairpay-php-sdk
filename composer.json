@@ -1,5 +1,6 @@
 {
-    "name": "Ferus/fairpay-php-sdk",
+    "name": "ferus/fairpay-php-sdk",
+    "type": "library",
     "description": "PHP DSK to work with FairPay",
     "keywords": ["fairpay", "sdk", "bde", "esiee"],
     "authors": [
