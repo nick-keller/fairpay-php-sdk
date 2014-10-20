@@ -21,7 +21,7 @@ class FairPay
     /**
      * @var string
      */
-    private $endpoint = 'http://localhost/fairpay/web/app_dev.php/api';
+    private $endpoint = 'https://bde.esiee.fr/fairpay/api';
 
     /**
      * @var string
