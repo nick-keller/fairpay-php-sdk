@@ -30,6 +30,8 @@ class FairPay
 
     private $curl_params = array(
         CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_SSL_VERIFYHOST => false,
+        CURLOPT_SSL_VERIFYPEER => false,
     );
 
     function __construct($api_key = '')
@@ -71,7 +73,7 @@ class FairPay
 
         foreach($data as $param_name => $value){
             if(strpos($url, "{{$param_name}}"))
-                $url = str_replace("{{$param_name}}", urlencode($value), $url);
+                $url = str_replace("{{$param_name}}", rawurlencode ($value), $url);
             else
                 $non_url_data[$param_name] = $value;
         }
@@ -103,7 +105,7 @@ class FairPay
             $info = curl_getinfo($curl);
             curl_close($curl);
 
-            throw new CurlExecException('Error occured during curl exec. Additioanl info: ' . var_export($info));
+            throw new CurlExecException('Error occured during curl exec.', $info);
         }
 
         curl_close($curl);
