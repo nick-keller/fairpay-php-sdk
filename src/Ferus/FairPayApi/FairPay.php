@@ -39,6 +39,11 @@ class FairPay
         $this->api_key = $api_key;
     }
 
+    public function setCurlParam($name, $value)
+    {
+        $this->curl_params[$name] = $value;
+    }
+
     /**
      * @param string $endpoint
      */
