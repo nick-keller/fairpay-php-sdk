@@ -135,9 +135,9 @@ class FairPay
         return $this->api('/students/{query}/search', 'get', array('query' => $query));
     }
 
-    public function getStudents()
+    public function getStudents($page)
     {
-        return $this->api('/students');
+        return $this->api('/students', 'get', array('page' => $page));
     }
 
     public function getBalance()
